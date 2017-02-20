@@ -7,7 +7,7 @@ Automator是一款应用于iOS平台(ARC)的自动转换工具，可以轻松的
 - 下载工程Demo文件，拷贝Automator.h与Automator.m文件到需要的工程
 - 创建自定义的Model，继承于Automator
 - 在.h文件中创建需要的属性
-- 如果属性类型是NSArray, 则只需要在.m文件中实现
+- 如果属性类型是NSArray, 则只需要在.m文件中实现其class
 
 
 .h
@@ -28,7 +28,8 @@ Automator是一款应用于iOS平台(ARC)的自动转换工具，可以轻松的
 @end
 ```
 
-即可轻松使用！
+即可轻松使用！支持嵌套！
+
 
 ``` objective-c
 
@@ -54,5 +55,6 @@ if (programmer) {
 
 ```
 
-# 注意
+# Sorry
+
 - 目前不支持C指针类型，不过，Automator会自动忽略而不会引起Crash。
