@@ -9,3 +9,30 @@ Automator是一款应用于iOS平台(ARC)的自动转换工具，可以轻松的
 - 在.h文件中创建需要的属性
 
 即可轻松使用！
+
+``` objective-c
+
+NSDictionary *dic_pro = @{
+    @"grade": @"2",
+    @"name": @"golder",
+    @"age": @26,
+    @"workYears": @2.5,
+    @"skills": @[@{@"des":@"OC", @"time":@3},@{@"des":@"PHP", @"time":@1}],
+    @"company": @{@"name":@"Apple", @"address": @"美国"}
+};
+
+Programmer *programmer;
+NSData *jsonData;
+if ([NSJSONSerialization isValidJSONObject:dic_pro]) {
+    jsonData = [NSJSONSerialization dataWithJSONObject:dic_pro options:NSJSONWritingPrettyPrinted error:NULL];
+    programmer = [Programmer automatorWithJSONData:jsonData];
+}
+
+if (programmer) {
+    NSData *data = [programmer autoJSONData];
+}
+
+```
+
+# 注意
+- 目前不支持C指针类型，不过，Automator会自动忽略而不会引起Crash。
