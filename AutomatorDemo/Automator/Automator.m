@@ -283,7 +283,10 @@ static const void *automator_getValue(const void *key) {
         
         char *name = malloc(sizeof(char) * strlen(attribute_type));
         char *src = attribute_type + 2;
-        strncpy(name, src, strlen(src)-1);
+        memset(name, 0, strlen(attribute_type));
+        size_t len = strlen(src) - 1;
+        strncpy(name, src, len);
+        *(name + len) = '\0';   // 这个位置之前没插入结束符号，让我跳了一次结实的火坑
         kls = objc_getClass(name);
         if (name)
             free(name);
